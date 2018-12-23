@@ -165,10 +165,10 @@ public class MainActivity extends AppCompatActivity implements EditItemFragment.
 
     @Override
     public void deleteItem(int position) {
-//        TodoItem todoItem = getItem(position);
-//        todoItem.delete();
-//        mTodoItems.remove(position);
-//        mTodoItemsAdapter.notifyItemRemoved(position);
+        TodoItem todoItem = getItem(position);
+        todoItem.delete();
+        mTodoItems.remove(position);
+        mTodoItemsAdapter.notifyItemRemoved(position);
     }
 
 //    public void firebaseSave(TodoItem todoItem){
