@@ -67,14 +67,14 @@ public class AuthenticationPage extends AppCompatActivity {
                         progressDialog.dismiss();
                         if (task.isSuccessful()){
                             FirebaseUser currentUser = mAuth.getCurrentUser();
-                          //  changeIntent(currentUser);
-                            if(currentUser.isEmailVerified()){
-                                changeIntent(currentUser);
-                            }
-                            else {
-                                Toast.makeText(getApplicationContext(),"Email is yet to be verified," +
-                                        " please verify your email",Toast.LENGTH_LONG).show();
-                            }
+                            changeIntent(currentUser);
+//                            if(currentUser.isEmailVerified()){
+//                                changeIntent(currentUser);
+//                            }
+//                            else {
+//                                Toast.makeText(getApplicationContext(),"Email is yet to be verified," +
+//                                        " please verify your email",Toast.LENGTH_LONG).show();
+//                            }
 
                         }else{
                             Toast.makeText(getApplicationContext(),"You are yet to register",
