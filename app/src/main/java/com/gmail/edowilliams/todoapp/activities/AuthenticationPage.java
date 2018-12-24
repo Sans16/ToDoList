@@ -67,7 +67,7 @@ public class AuthenticationPage extends AppCompatActivity {
                         progressDialog.dismiss();
                         if (task.isSuccessful()){
                             FirebaseUser currentUser = mAuth.getCurrentUser();
-                            changeIntent(currentUser);
+                          //  changeIntent(currentUser);
                             if(currentUser.isEmailVerified()){
                                 changeIntent(currentUser);
                             }

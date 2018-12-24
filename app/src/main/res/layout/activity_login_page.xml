@@ -54,9 +54,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="70dp"
-        android:text="@string/sign_up"
+        android:layout_marginStart="24dp"
         android:padding="4dp"
+        android:text="@string/sign_up"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="@+id/passwordET"
+        app:layout_constraintStart_toEndOf="@+id/loginBtn"
         app:layout_constraintTop_toTopOf="@+id/loginBtn" />
 </android.support.constraint.ConstraintLayout>
