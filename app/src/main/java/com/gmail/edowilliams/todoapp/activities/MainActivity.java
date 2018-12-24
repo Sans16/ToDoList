@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements EditItemFragment.
         if (!itemText.isEmpty()) {
             TodoItem todoItem = new TodoItem(itemText);
             todoItem.save();
-           // firebaseSave(todoItem);
+            firebaseSave(todoItem);
             mTodoItems.add(todoItem);
             int newPosition = mTodoItems.size() - 1;
             mTodoItemsAdapter.notifyItemInserted(newPosition);
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements EditItemFragment.
     private void saveEdit(int itemPosition, String newTitle) {
         TodoItem todoItem = getItem(itemPosition);
         todoItem.setTitle(newTitle);
-        //firebaseSave(todoItem);
+        firebaseSave(todoItem);
         mTodoItemsAdapter.notifyItemChanged(itemPosition);
     }
 
@@ -171,25 +171,25 @@ public class MainActivity extends AppCompatActivity implements EditItemFragment.
         mTodoItemsAdapter.notifyItemRemoved(position);
     }
 
-//    public void firebaseSave(TodoItem todoItem){
-//        Map<String, Object> item = new HashMap<>();
-//        item.put("title", todoItem.getTitle());
-//
-//        db.collection(currentUser.getEmail())
-//                .add(item)
-//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                    @Override
-//                    public void onSuccess(DocumentReference documentReference) {
-//                        Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.w("TAG", "Error adding document", e);
-//                    }
-//                });
-//    }
+    public void firebaseSave(TodoItem todoItem){
+        Map<String, Object> item = new HashMap<>();
+        item.put("title", todoItem.getTitle());
+
+        db.collection(currentUser.getEmail())
+                .add(item)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("TAG", "Error adding document", e);
+                    }
+                });
+    }
 
     // This is to get the data from firebase but i decided not to use it since all data are first obtained from the local database.
     public void firebaseRetrieve(){
